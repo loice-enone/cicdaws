@@ -1,0 +1,11 @@
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+ListenStream=/run/gunicorn.sock
+SocketUser=ec2-user
+SocketGroup=nginx
+SocketMode=0660
+
+[Install]
+WantedBy=sockets.target

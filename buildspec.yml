@@ -1,0 +1,22 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    DJANGO_SETTINGS_MODULE: agency.settings
+    SECRET_KEY: nosecret
+    OPBEAT_ENABLED: False
+
+phases:
+  pre_build:
+    commands:
+      - echo Prebuild ops
+      - pip3 install -r requirements.txt
+  build:
+    commands:
+      - echo Building the application
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'
